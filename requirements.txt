@@ -1,0 +1,5 @@
+streamlit
+# the public repository
+git+https://github.com/UnicornOnAzur/open_repository.git
+# 
+git+https://github.com/UnicornOnAzur/closed_repository.git
