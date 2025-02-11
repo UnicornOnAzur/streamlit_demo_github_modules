@@ -21,6 +21,12 @@ except ImportError as ie:
 #
 right.header("Use a private repository")
 try:
+    token = os.environ.get("token")
+    subprocess.Popen(
+        [f'{sys.executable} -m pip install git+https://${{token}}@github.com/yourusername/yourrepo.git'],
+         shell=True)
+    # wait for subprocess to install package before running your actual code below
+    time.sleep(90)
     from private_repository import code as private_code
     private_code.make_dataframe(right)
     private_code.make_graph(right)
