@@ -27,7 +27,7 @@ try:
     result = subprocess.check_call(
         [(f'{sys.executable}'
           " -m pip install "
-          f'git+https://${token}@github.com/UnicornOnAzur/closed_repository.git')],
+          f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')],
          shell=True)
     # wait for subprocess to install package before running your actual code below
     for i in range(60):
