@@ -24,7 +24,7 @@ try:
     token = os.environ.get("token")
     if token:
         st.toast(f"Token was found: {len(token)}")
-    result = subprocess.call(
+    result = subprocess.check_call(
         [f'{sys.executable} -m pip install git+https://${{token}}@github.com/UnicornOnAzur/closed_repository.git'],
          shell=True)
     # wait for subprocess to install package before running your actual code below
