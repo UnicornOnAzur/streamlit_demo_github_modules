@@ -24,15 +24,13 @@ try:
     token = os.environ.get("token")
     if token:
         st.toast(f"Token was found: {len(token)}")
-    result = subprocess.check_call(
+    result = subprocess.Popen(
         [(f'{sys.executable}'
           " -m pip install "
           f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')],
          shell=True)
     # wait for subprocess to install package before running your actual code below
-    for i in range(60):
-        right.write(result)
-        time.sleep(.9)
+    time.sleep(90)
     from private_repository import code as private_code
     private_code.make_dataframe(right)
     private_code.make_graph(right)
