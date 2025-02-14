@@ -27,7 +27,7 @@ if token:
 right.write(os.listdir())
 result = subprocess.Popen(
     [(f'{sys.executable}'
-        " -m pip install "
+        " -m pip install --user "
         f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')],
      shell=True)
 # wait for subprocess to install package before running your actual code below
