@@ -25,7 +25,9 @@ right.header("Use a private repository")
 token = os.environ.get("token")  # get the token from the environment\
 right.write(sys.executable)
 right.write(os.getcwd())
-right.write(glob.glob("**/**/*", recursive=True))
+# right.write(glob.glob("**/**/*", recursive=True))
+with open("requirements.txt") as file:
+    st.write(file.read())
 
 # result = subprocess.Popen(
 #     [(f'{sys.executable}'
