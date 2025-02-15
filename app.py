@@ -31,6 +31,8 @@ result = subprocess.Popen(
         f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')
      ],
     shell=True)
+import glob
+right.write(glob.glob("**/*", recursive=True))
 # # wait for subprocess to install package before running your actual code below
 # time.sleep(30)
 # right.write(os.listdir())
