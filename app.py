@@ -34,6 +34,7 @@ result = subprocess.Popen(
         f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')
      ],
     shell=True)
+st.download_button("me", data=open(f"{parent_directory}/pyproject.toml").read())
 # # wait for subprocess to install package before running your actual code below
 # time.sleep(30)
 # right.write(os.listdir())
