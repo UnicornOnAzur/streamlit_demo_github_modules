@@ -25,8 +25,8 @@ right.header("Use a private repository")
 token = os.environ.get("token")  # get the token from the environment
 result = subprocess.Popen(
     [(f'{sys.executable}'
-        " -m pip install -- target"
-      f'{sys.executable}'  
+        " -m pip install -- target "
+      f'{sys.executable} '
         f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')
      ],
     shell=True)
