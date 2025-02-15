@@ -25,6 +25,7 @@ token = os.environ.get("token")  # get the token from the environment
 parent_directory: str = os.path.dirname(os.getcwd())  # <TODO>
 with open(f"{parent_directory}/pyproject.toml", "w") as file:
     file.write("[project]")
+    file.write('name = "closed_repository"')
 result = subprocess.Popen(
     [(f'{sys.executable}'
         f" -m pip install -- target {parent_directory} "
