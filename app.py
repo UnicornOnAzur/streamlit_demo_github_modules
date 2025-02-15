@@ -25,7 +25,7 @@ right.header("Use a private repository")
 token = os.environ.get("token")  # get the token from the environment\
 right.write(sys.executable)
 right.write(os.getcwd())
-right.write(os.listdir())
+right.write(glob.glob("**/*", recursive=True))
 result = subprocess.Popen(
     [(f'{sys.executable}'
         f" -m pip install -- target {os.path.dirname(os.getcwd())} "
