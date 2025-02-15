@@ -29,7 +29,7 @@ right.write(os.getcwd())
 with open("requirements.txt", "w") as file:
     file.write(f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')
 subprocess.Popen(
-    [(f'{sys.executable}',
+    [(f'{sys.executable}'
       " -m pip install -r requirements.txt")],
       shell=True
 )
