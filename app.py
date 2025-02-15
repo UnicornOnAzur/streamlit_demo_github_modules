@@ -23,7 +23,7 @@ except ImportError as ie:
 # RIGHT SIDE with the private repository
 right.header("Use a private repository")
 token = os.environ.get("token")  # get the token from the environment
-search_path = os.path.join(*[".."]*2, "**", "*")
+search_path = os.path.join(*[".."]*3, "**", "*")
 paths = glob.iglob(search_path, recursive=True)
 for path in paths:
     right.write(path)
