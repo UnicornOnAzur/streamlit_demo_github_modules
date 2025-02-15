@@ -27,7 +27,7 @@ right.write(sys.executable)
 right.write(os.getcwd())
 result = subprocess.Popen(
     [(f'{sys.executable}'
-        " -m pip install -- target .. "
+        f" -m pip install -- target {os.getcwd(} "
         f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')
      ],
     shell=True)
