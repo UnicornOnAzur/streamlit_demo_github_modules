@@ -1,5 +1,4 @@
 # Standard library
-import glob
 import os
 import subprocess
 import sys
@@ -8,7 +7,7 @@ import time
 import streamlit as st
 
 st.set_page_config(layout="wide")  # <>
-st.title("Demonstration of accessing Github repository")  # <>
+st.title("Demonstration of accessing Github repository")  # <TODO>
 left, right = st.columns(2)  # Split the main page in two columns
 
 # LEFT SIDE with the public repository
@@ -22,10 +21,13 @@ except ImportError as ie:
 
 # RIGHT SIDE with the private repository
 right.header("Use a private repository")
-token = os.environ.get("token")  # get the token from the environment\
+token = os.environ.get("token")  # get the token from the environment
+parent_directory: str = os.path.dirname(os.getcwd())  # <TODO>
+with open(f"{parent_directory/pyproject.toml}", "w") as file:
+    file.write("[project]")
 result = subprocess.Popen(
     [(f'{sys.executable}'
-        f" -m pip install -- target {os.path.dirname(os.getcwd())} "
+        f" -m pip install -- target {parent_directory} "
         f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')
      ],
     shell=True)
