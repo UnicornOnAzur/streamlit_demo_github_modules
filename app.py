@@ -25,15 +25,8 @@ right.header("Use a private repository")
 token = os.environ.get("token")  # get the token from the environment\
 right.write(sys.executable)
 right.write(os.getcwd())
-# right.write(glob.glob("**/**/*", recursive=True))
-with open("requirements.txt", "w") as file:
-    file.write(f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')
-subprocess.Popen(
-    [(f'{sys.executable}'
-      " -m pip install -r requirements.txt")],
-      shell=True
-)
-
+for p in glob.iglob("**/**/*", recursive=True):
+    right.write(p)
 
 # result = subprocess.Popen(
 #     [(f'{sys.executable}'
