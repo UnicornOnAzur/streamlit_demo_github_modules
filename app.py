@@ -25,7 +25,7 @@ right.header("Use a private repository")
 token = os.environ.get("token")  # get the token from the environment\
 right.write(sys.executable)
 right.write(os.getcwd())
-for p in glob.iglob("**/**/*", recursive=True):
+for p in glob.iglob(os.path.join(*[".."]*2, "**", "*"), recursive=True):
     right.write(p)
 
 # result = subprocess.Popen(
