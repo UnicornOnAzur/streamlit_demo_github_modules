@@ -23,7 +23,7 @@ except ImportError as ie:
 right.header("Use a private repository")
 token = os.environ.get("token")  # get the token from the environment
 parent_directory: str = os.path.dirname(os.getcwd())  # <TODO>
-with open(f"{parent_directory/pyproject.toml}", "w") as file:
+with open(f"{parent_directory}/pyproject.toml", "w") as file:
     file.write("[project]")
 result = subprocess.Popen(
     [(f'{sys.executable}'
