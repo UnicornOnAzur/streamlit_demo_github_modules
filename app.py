@@ -22,7 +22,8 @@ except ImportError as ie:
 
 # RIGHT SIDE with the private repository
 right.header("Use a private repository")
-token = os.environ.get("token")  # get the token from the environment
+token = os.environ.get("token")  # get the token from the environment\
+right.write(sys.executable)
 result = subprocess.Popen(
     [(f'{sys.executable}'
         " -m pip install -- target "
