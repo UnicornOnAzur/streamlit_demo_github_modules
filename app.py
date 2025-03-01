@@ -23,13 +23,13 @@ except ImportError as ie:
 right.header("Use a private repository")
 token = os.environ.get("token")  # get the token from the environment
 parent_directory: str = os.path.dirname(os.getcwd())  # <TODO>
-# with open(f"{parent_directory}/pyproject.toml", "w") as file:
-#     file.write("[project]\n")
-#     file.write('name = "closed_repository"\n')
-#     file.write('version = "0.0.1a"\n')
-with open(f"{parent_directory}/setup.py", "w") as file:
-    file.write("import setuptools\n")
-    file.write("setuptools.setup(name='closed_repository')\n")
+# # with open(f"{parent_directory}/pyproject.toml", "w") as file:
+# #     file.write("[project]\n")
+# #     file.write('name = "closed_repository"\n')
+# #     file.write('version = "0.0.1a"\n')
+# with open(f"{parent_directory}/setup.py", "w") as file:
+#     file.write("import setuptools\n")
+#     file.write("setuptools.setup(name='closed_repository')\n")
 result = subprocess.Popen(
     [(f'{sys.executable}'
         f" -m pip install -- target {parent_directory} "
