@@ -21,27 +21,31 @@ except ImportError as ie:
 
 # RIGHT SIDE with the private repository
 right.header("Use a private repository")
-token = os.environ.get("token")  # get the token from the environment
-parent_directory: str = os.path.dirname(os.getcwd())  # <TODO>
+try:
+    from private_repository import code as private_code
+except ModuleNotFoundError:
+    sleep_time = 30
+    dependency_warning = st.warning(
+        f"Installing dependencies, this takes {sleep_time} seconds."
+    )
+    token = os.environ.get("token")  # get the token from the environment
+    parent_directory: str = os.path.dirname(os.getcwd())  # <TODO>
 # with open(f"{parent_directory}/pyproject.toml", "w") as file:
 #     file.write("[project]\n")
 #     file.write('name = "closed_repository"\n')
 #     file.write('version = "0.0.1"\n')
-with open(f"{parent_directory}/setup.py", "w") as file:
-    file.write("import setuptools\n")
-    file.write("setuptools.setup(name='test', install_requires=['closed_repository'])\n")
-result = subprocess.Popen(
-    [(f'{sys.executable}'
-        f" -m pip install -- target {parent_directory} "
-        f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')
-     ],
-    shell=True)
-# st.download_button("me", data=open(f"{parent_directory}/pyproject.toml").read())
-# # wait for subprocess to install package before running your actual code below
-time.sleep(30)
-# right.write(os.listdir())
-# time.sleep(30)
-# right.write(os.listdir())
+    with open(f"{parent_directory}/setup.py", "w") as file:
+        file.write("import setuptools\n")
+        file.write(("setuptools.setup(name='test',"
+                    " install_requires=['closed_repository'])\n"))
+    result = subprocess.Popen(
+        [(f'{sys.executable}'
+            f" -m pip install -- target {parent_directory} "
+            f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')
+         ],
+        shell=True)
+    time.sleep(30)
+    dependency_warning.empty()
 try:
     from private_repository import code as private_code
     private_code.create_empty_dataframe(right)
