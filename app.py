@@ -26,7 +26,7 @@ parent_directory: str = os.path.dirname(os.getcwd())  # <TODO>
 with open(f"{parent_directory}/pyproject.toml", "w") as file:
     file.write("[project]\n")
     file.write('name = "closed_repository"\n')
-    file.write('version = "0.0.1a"\n')
+    # file.write('version = "0.0.1a"\n')
 # with open(f"{parent_directory}/setup.py", "w") as file:
 #     file.write("import setuptools\n")
 #     file.write("setuptools.setup(name='closed_repository')\n")
