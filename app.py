@@ -24,8 +24,8 @@ right.header("Use a private repository")
 try:
     from private_repository import code as private_code
 except ModuleNotFoundError:
-    sleep_time = 30
-    dependency_warning = st.warning(
+    sleep_time = 90
+    dependency_warning = right.warning(
         f"Installing dependencies, this takes {sleep_time} seconds."
     )
     token = os.environ.get("token")  # get the token from the environment
@@ -44,7 +44,7 @@ except ModuleNotFoundError:
             f'git+https://{token}@github.com/UnicornOnAzur/closed_repository.git')
          ],
         shell=True)
-    time.sleep(30)
+    time.sleep(sleep_time)
     dependency_warning.empty()
 try:
     from private_repository import code as private_code
