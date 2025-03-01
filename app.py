@@ -22,7 +22,7 @@ except ImportError as ie:
 # RIGHT SIDE with the private repository
 right.header("Use a private repository")
 token = os.environ.get("token")  # get the token from the environment
-parent_directory: str = ".." # os.path.dirname(os.getcwd())  # <TODO>
+parent_directory: str = os.path.dirname(os.getcwd())  # <TODO>
 # with open(f"{parent_directory}/pyproject.toml", "w") as file:
 #     file.write("[project]\n")
 #     file.write('name = "closed_repository"\n')
